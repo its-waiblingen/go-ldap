@@ -72,8 +72,8 @@ func (msgCtx *messageContext) sendResponse(packet *PacketResponse) {
 }
 
 type messagePacket struct {
-	Op        int
 	MessageID int64
+	Op        int
 	Packet    *ber.Packet
 	Context   *messageContext
 }
@@ -89,6 +89,8 @@ type Conn struct {
 	// requestTimeout is loaded atomically
 	// so we need to ensure 64-bit alignment on 32-bit platforms.
 	requestTimeout      int64
+	chanMessageID       chan int64
+	messageContexts     map[int64]*messageContext
 	conn                net.Conn
 	isTLS               bool
 	closing             uint32
@@ -96,9 +98,7 @@ type Conn struct {
 	isStartingTLS       bool
 	Debug               debugging
 	chanConfirm         chan struct{}
-	messageContexts     map[int64]*messageContext
 	chanMessage         chan *messagePacket
-	chanMessageID       chan int64
 	wgClose             sync.WaitGroup
 	outstandingRequests uint
 	messageMutex        sync.Mutex
