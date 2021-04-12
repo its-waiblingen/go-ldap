@@ -1,4 +1,4 @@
-module github.com/its-waiblingen/go-ldap
+module github.com/go-ldap/ldap
 
 replace github.com/go-ldap/ldap => github.com/its-waiblingen/go-ldap v2.5.1+incompatible
 

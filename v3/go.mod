@@ -1,4 +1,5 @@
-module github.com/its-waiblingen/go-ldap/v3
+module github.com/go-ldap/ldap/v3
+
 replace github.com/go-ldap/ldap/v3 => github.com/its-waiblingen/go-ldap/v3 v3.3.0
 
 go 1.14
