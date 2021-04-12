@@ -22,7 +22,7 @@ The library implements the following specifications:
 
 ## Go Modules:
 
-`go get github.com/go-ldap/ldap/v3`
+`go get github.com/its-waiblingen/go-ldap/v3`
 
 As go-ldap was v2+ when Go Modules came out, updating to Go Modules would be considered a breaking change.
 
